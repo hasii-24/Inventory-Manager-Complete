@@ -11,7 +11,7 @@ const app = express();
 const PORT = 5000;
 
 // ✅ MongoDB
-mongoose.connect(MONGO_URI="mongodb://127.0.0.1:27017/inventoryDB"
+mongoose.connect(MONGO_URI="mongodb+srv://godahasitha:<godahasitha>@inventory1.lasdu1c.mongodb.net/?retryWrites=true&w=majority&appName=inventory1"
 ,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
