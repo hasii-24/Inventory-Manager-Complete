@@ -11,7 +11,7 @@ const app = express();
 const PORT = 5000;
 
 // ✅ MongoDB
-mongoose.connect("mongodb+srv://mongodb://atlas-sql-6880ef1b9485f66bc8da39e3-44kp6t.a.query.mongodb.net/sample_mflix?ssl=true&authSource=admin")
+mongoose.connect("mongodb://atlas-sql-6880ef1b9485f66bc8da39e3-44kp6t.a.query.mongodb.net/sample_mflix?ssl=true&authSource=admin")
 
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ MongoDB error:', err));
