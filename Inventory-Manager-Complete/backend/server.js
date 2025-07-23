@@ -11,7 +11,8 @@ const app = express();
 const PORT = 5000;
 
 // ✅ MongoDB
-mongoose.connect(MONGO_URI="mongodb+srv://hasithagoda:yUUR4amywEkm1ZdD@atlas-sql-6880ef1b9485f66bc8da39e3-44kp6t.a.query.mongodb.net/sample_mflix?retryWrites=true&w=majority",{
+mongoose.connect(MONGO_URI="mongodb://127.0.0.1:27017/inventoryDB"
+,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
