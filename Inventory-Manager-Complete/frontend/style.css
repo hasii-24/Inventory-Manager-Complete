@@ -1,0 +1,65 @@
+/* CSS body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+form input, form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  display: inline-block;
+  width: 200px;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav button {
+  color: white;
+  background: none;
+  border: none;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  text-decoration: underline;
+}
+
+.section {
+  padding: 20px;
+}
+
+input, select, button {
+  margin: 5px;
+  padding: 8px;
+  font-size: 16px;
+}
+*/

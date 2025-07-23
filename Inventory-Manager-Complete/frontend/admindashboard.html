@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard - Inventory Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Inline responsive styling -->
+  <style>
+    /* Reset & Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1a73e8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    /* Navigation */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      background-color: #1a73e8;
+      padding: 10px;
+    }
+    nav button {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav button:hover {
+      background-color: #fff;
+      color: #1a73e8;
+    }
+    /* Section Containers */
+    .section {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .section h3 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    /* Flex container for cards */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    /* Product Card Styles */
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+      padding: 10px;
+      text-align: center;
+      flex: 0 0 auto;
+      width: 200px;
+    }
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    /* Form Styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    form input,
+    form button {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #1a73e8;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #1669c1;
+    }
+    /* Responsive Canvas */
+    canvas {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      nav button {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+  </header>
+  
+  <nav>
+    <button id="view-orders">Purchased Stock</button>
+    <button id="manage-stock">Manage Products</button>
+    <button id="stockPredictionBtn">View Stock Analysis</button>
+    <button id="add-product">Add Product</button>
+    <button id="logoutBtn">Logout</button>
+  </nav>
+  
+  <!-- Purchased Stock Section -->
+  <div id="orders" class="section" style="display:none;">
+    <h3>Purchased Stock</h3>
+    <div id="purchasedContainer" class="cards-container"></div>
+  </div>
+  
+  <!-- Manage Products Section -->
+  <div id="stock" class="section" style="display:none;">
+    <h3>Manage Products</h3>
+    <div id="productsContainer" class="cards-container"></div>
+  </div>
+  
+  <!-- Stock Prediction Section -->
+  <div id="predict-section" class="section" style="display:none;">
+    <h3>Stock Prediction</h3>
+    <canvas id="predictionChart" width="400" height="200"></canvas>
+  </div>
+  
+  <!-- Add Product Form Section -->
+  <div id="add-product-form-section" class="section" style="display:none;">
+    <h3>Add Product</h3>
+    <form id="addProductForm">
+      <input type="text" id="name" placeholder="Product Name" required>
+      <input type="number" id="quantity" placeholder="Quantity" required>
+      <input type="number" id="price" placeholder="Price" required>
+      <input type="text" id="image" placeholder="Image Filename (e.g. item.png)" required>
+      <button type="submit">Add Product</button>
+    </form>
+    <p id="addProductMsg"></p>
+  </div>
+  
+  <script src="admin.js"></script>
+</body>
+</html>

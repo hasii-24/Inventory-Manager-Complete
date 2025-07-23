@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventory Manager - Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+    #loginDiv, #signupDiv {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      transition: all 0.3s ease;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    label {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    p {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Inventory Manager</h1>
+
+  <div id="loginDiv">
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <label><input type="checkbox" id="remember" /> Remember me</label><br />
+      <select id="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+    </form>
+  </div>
+
+  <div id="signupDiv" style="display: none">
+    <form id="signupForm">
+      <input type="text" id="newUsername" placeholder="Choose Username" required />
+      <input type="password" id="newPassword" placeholder="Choose Password" required />
+      <select id="newRole">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Back to Login</a></p>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
