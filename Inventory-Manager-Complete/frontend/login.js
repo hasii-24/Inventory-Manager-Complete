@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   const password = document.getElementById('password').value;
   const role = document.getElementById('role').value;
 
-  const res = await fetch('http://localhost:5000/api/login', {
+  const res = await fetch("https://inventory-manager-complete.onrender.com/api/login", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password, role }),
@@ -34,7 +34,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
   const password = document.getElementById('newPassword').value;
   const role = document.getElementById('newRole').value;
 
-  const res = await fetch('http://localhost:5000/api/signup', {
+  const res = await fetch(https://inventory-manager-complete.onrender.com/api/login", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password, role }),
