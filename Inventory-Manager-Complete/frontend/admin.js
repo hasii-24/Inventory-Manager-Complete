@@ -114,7 +114,7 @@ document.getElementById('addProductForm').addEventListener('submit', async (e) =
   const image = document.getElementById('image').value;
 
   try {
-    const res = await fetch(`https://inventory-manager-complete.onrender.com/api/products/add, {
+    const res = await fetch(`https://inventory-manager-complete.onrender.com/api/products/add`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, quantity, price, image })
@@ -126,6 +126,7 @@ document.getElementById('addProductForm').addEventListener('submit', async (e) =
     document.getElementById('addProductMsg').innerText = 'Error adding product.';
   }
 });
+
 
 function loadStockPredictionChart() {
   fetch('http://localhost:5001/predict')
