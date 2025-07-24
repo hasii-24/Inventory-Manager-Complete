@@ -43,7 +43,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
   const data = await res.json();
 
-  if (data.success) {
+  if (res.ok) {
     alert('Signup successful, please login.');
     document.getElementById('signupDiv').style.display = 'none';
     document.getElementById('loginDiv').style.display = 'block';
