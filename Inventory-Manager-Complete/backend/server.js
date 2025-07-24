@@ -11,11 +11,11 @@ const app = express();
 const PORT = 5000;
 
 // ✅ MongoDB
-mongoose.connect(MONGO_URI="mongodb+srv://godahasitha:godahasitha@inventory1.lasdu1c.mongodb.net/?retryWrites=true&w=majority&appName=inventory1"
-,{
+require('dotenv').config();
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
+});
 
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ MongoDB error:', err));
