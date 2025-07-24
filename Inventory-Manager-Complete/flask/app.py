@@ -20,10 +20,8 @@ orders = db["orders"]
 
 @app.route('/predict', methods=['GET'])
 def predict_stock():
-    # Step 1: Get all products
     products = list(db.products.find({}, {"_id": 0, "name": 1, "quantity": 1}))
 
-    # Step 2: Aggregate purchases based on productName
     pipeline = [
         {"$group": {
             "_id": "$productName",
@@ -32,10 +30,11 @@ def predict_stock():
     ]
     purchases = list(db.orders.aggregate(pipeline))
 
-    # Step 3: Map productName to totalPurchased
+    print("Products:", products)         # 🟢 Debug print
+    print("Purchases:", purchases)       # 🟢 Debug print
+
     purchased_map = {p["_id"]: p["totalPurchased"] for p in purchases}
 
-    # Step 4: Combine product data with purchased data
     result = []
     for product in products:
         name = product["name"]
@@ -48,7 +47,10 @@ def predict_stock():
             "purchased": purchased
         })
 
+    print("Result:", result)             # 🟢 Final debug
+
     return jsonify(result)
+
 @app.route("/")
 def home():
     return "Flask server is running"
