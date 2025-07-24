@@ -71,13 +71,17 @@ document.getElementById("viewProducts").addEventListener("click", () => {
         card.onmouseover = () => card.style.transform = "scale(1.05)";
         card.onmouseout = () => card.style.transform = "scale(1)";
 
-        card.innerHTML = `
-          <h3>${p.name}</h3>
-          <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;"/>
-          <p><strong>Price:</strong> ₹${p.price}</p>
-          <p><strong>Stock Left:</strong> ${p.quantity}</p>
-          <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
-        `;
+       data.forEach(p => {
+  html += `
+    <div class="product-card">
+      <h3>${p.name}</h3>
+      <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;" />
+      <p>Price: ₹${p.price}</p>
+      <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
+    </div>
+  `;
+});
+
 
         scrollContainer.appendChild(card);
       });
