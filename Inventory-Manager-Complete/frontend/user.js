@@ -1,5 +1,4 @@
-
-  function placeOrder(productId, productName, price) {
+function placeOrder(productId, productName, price) {
   const quantity = prompt(`How many "${productName}" would you like to buy?`);
   if (!quantity || isNaN(quantity) || quantity <= 0) {
     alert('Please enter a valid quantity');
@@ -34,10 +33,12 @@
     });
 }
 
+// Logout button
 document.getElementById("logoutBtn").addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
+// View Products logic
 document.getElementById("viewProducts").addEventListener("click", () => {
   fetch("https://inventory-manager-complete.onrender.com/api/products")
     .then(res => res.json())
@@ -56,32 +57,31 @@ document.getElementById("viewProducts").addEventListener("click", () => {
       scrollContainer.style.gap = "20px";
       scrollContainer.style.padding = "20px 0";
 
-     products.forEach(p => {
-  const card = document.createElement("div");
-  card.style.flex = "0 0 auto";
-  card.style.border = "1px solid #ddd";
-  card.style.borderRadius = "8px";
-  card.style.padding = "15px";
-  card.style.minWidth = "200px";
-  card.style.background = "#fafafa";
-  card.style.textAlign = "center";
-  card.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.1)";
-  card.style.transition = "transform 0.3s ease";
-  card.style.cursor = "pointer";
-  card.onmouseover = () => card.style.transform = "scale(1.05)";
-  card.onmouseout = () => card.style.transform = "scale(1)";
+      products.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.style.flex = "0 0 auto";
+        card.style.border = "1px solid #ddd";
+        card.style.borderRadius = "8px";
+        card.style.padding = "15px";
+        card.style.minWidth = "200px";
+        card.style.background = "#fafafa";
+        card.style.textAlign = "center";
+        card.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.1)";
+        card.style.transition = "transform 0.3s ease";
+        card.style.cursor = "pointer";
+        card.onmouseover = () => card.style.transform = "scale(1.05)";
+        card.onmouseout = () => card.style.transform = "scale(1)";
 
-  const html = `
-    <h3>${p.name}</h3>
-    <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;" />
-    <p>Price: ₹${p.price}</p>
-    <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
-  `;
-  card.innerHTML = html;
+        card.innerHTML = `
+          <h3>${p.name}</h3>
+          <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;" />
+          <p>Price: ₹${p.price}</p>
+          <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
+        `;
 
-  scrollContainer.appendChild(card);
-});
-
+        scrollContainer.appendChild(card);
+      });
 
       content.appendChild(scrollContainer);
     })
@@ -91,7 +91,7 @@ document.getElementById("viewProducts").addEventListener("click", () => {
     });
 });
 
-// ✅ Load products by default
+// Load products by default
 window.onload = () => {
   document.getElementById("viewProducts").click();
 };
