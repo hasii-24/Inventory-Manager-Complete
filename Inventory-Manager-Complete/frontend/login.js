@@ -34,11 +34,12 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
   const password = document.getElementById('newPassword').value;
   const role = document.getElementById('newRole').value;
 
-  const res = await fetch(https://inventory-manager-complete.onrender.com/api/login", {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password, role }),
-  });
+ const res = await fetch("https://inventory-manager-complete.onrender.com/api/signup", {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ username, password, role }),
+});
+
 
   const data = await res.json();
 
