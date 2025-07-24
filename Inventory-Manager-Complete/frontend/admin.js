@@ -15,7 +15,7 @@ async function fetchPurchasedStock() {
   const container = document.getElementById('purchasedContainer');
   container.innerHTML = '<p>Loading...</p>';
   try {
-    const res = await fetch('/api/orders/aggregated');
+    const res = await fetch('https://inventory-manager-complete.onrender.com/api/orders/aggregated');
     const data = await res.json();
     container.innerHTML = '';
 
@@ -45,7 +45,7 @@ async function fetchAllProducts() {
   const container = document.getElementById('productsContainer');
   container.innerHTML = '<p>Loading...</p>';
   try {
-    const res = await fetch('/api/products');
+    const res = await fetch('https://inventory-manager-complete.onrender.com/api/products');
     const products = await res.json();
     container.innerHTML = '';
 
@@ -81,7 +81,7 @@ async function editProduct(id) {
   if (!newName || !newQty || !newPrice) return;
 
   try {
-    const res = await fetch(`/api/products/${id}`, {
+    const res = await fetch(`https://inventory-manager-complete.onrender.com/api/products/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: newName, quantity: newQty, price: newPrice })
@@ -97,7 +97,7 @@ async function editProduct(id) {
 async function deleteProduct(id) {
   if (!confirm("Are you sure you want to delete this product?")) return;
   try {
-    const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
+    const res = fetch(`https://inventory-manager-complete.onrender.com/api/products/${id}`, { method: 'DELETE' });
     const result = await res.json();
     alert(result.message);
     fetchAllProducts();
@@ -114,7 +114,7 @@ document.getElementById('addProductForm').addEventListener('submit', async (e) =
   const image = document.getElementById('image').value;
 
   try {
-    const res = await fetch('/api/products/add', {
+    const res = await fetch(`https://inventory-manager-complete.onrender.com/api/products/add, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, quantity, price, image })
