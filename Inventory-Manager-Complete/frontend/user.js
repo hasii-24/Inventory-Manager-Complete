@@ -77,6 +77,7 @@ document.getElementById("viewProducts").addEventListener("click", () => {
           <h3>${p.name}</h3>
           <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;" />
           <p>Price: ₹${p.price}</p>
+          <p>Quantity: ${p.quantity}</p>
           <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
         `;
 
