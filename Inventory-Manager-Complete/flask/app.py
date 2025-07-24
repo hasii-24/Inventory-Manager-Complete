@@ -14,7 +14,7 @@ CORS(app)
 # Use MongoDB URI from environment
 MONGO_URI = os.environ.get("MONGO_URI")
 client = pymongo.MongoClient(MONGO_URI)
-db = client["inventoryDB"]
+db = client["inventory1"]
 products = db["products"]
 orders = db["orders"]
 
