@@ -2,11 +2,15 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import pymongo
 from bson import ObjectId
+import os
+
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
+client = pymongo.MongoClient(MONGO_URI)
 
 app = Flask(__name__)
 CORS(app)
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+
 db = client["inventoryDB"]
 products = db["products"]
 orders = db["orders"]
