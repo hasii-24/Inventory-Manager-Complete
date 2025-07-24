@@ -38,7 +38,7 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
 });
 
 document.getElementById("viewProducts").addEventListener("click", () => {
-  fetch("http://localhost:5000/api/products")
+  fetch("https://inventory-manager-complete.onrender.com/api/products")
     .then(res => res.json())
     .then(products => {
       const content = document.getElementById("contentArea");
@@ -72,7 +72,7 @@ document.getElementById("viewProducts").addEventListener("click", () => {
 
         card.innerHTML = `
           <h3>${p.name}</h3>
-          <img src="http://localhost:5000/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;"/>
+          <img src="ttps://inventory-manager-complete.onrender.com/images${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;"/>
           <p><strong>Price:</strong> ₹${p.price}</p>
           <p><strong>Stock Left:</strong> ${p.quantity}</p>
           <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
