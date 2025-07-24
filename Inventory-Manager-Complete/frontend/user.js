@@ -7,7 +7,7 @@ function placeOrder(productId, productName, price) {
 
   const username = localStorage.getItem("username");
 
-  fetch(https://inventory-manager-complete.onrender.com/api/login", {
+  fetch("https://inventory-manager-complete.onrender.com/api/orders", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -72,7 +72,7 @@ document.getElementById("viewProducts").addEventListener("click", () => {
 
         card.innerHTML = `
           <h3>${p.name}</h3>
-          <img src="ttps://inventory-manager-complete.onrender.com/images${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;"/>
+          <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;"/>
           <p><strong>Price:</strong> ₹${p.price}</p>
           <p><strong>Stock Left:</strong> ${p.quantity}</p>
           <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
