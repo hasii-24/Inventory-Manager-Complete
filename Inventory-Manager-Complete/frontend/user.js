@@ -56,35 +56,32 @@ document.getElementById("viewProducts").addEventListener("click", () => {
       scrollContainer.style.gap = "20px";
       scrollContainer.style.padding = "20px 0";
 
-      products.forEach(p => {
-        const card = document.createElement("div");
-        card.style.flex = "0 0 auto";
-        card.style.border = "1px solid #ddd";
-        card.style.borderRadius = "8px";
-        card.style.padding = "15px";
-        card.style.minWidth = "200px";
-        card.style.background = "#fafafa";
-        card.style.textAlign = "center";
-        card.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.1)";
-        card.style.transition = "transform 0.3s ease";
-        card.style.cursor = "pointer";
-        card.onmouseover = () => card.style.transform = "scale(1.05)";
-        card.onmouseout = () => card.style.transform = "scale(1)";
+     products.forEach(p => {
+  const card = document.createElement("div");
+  card.style.flex = "0 0 auto";
+  card.style.border = "1px solid #ddd";
+  card.style.borderRadius = "8px";
+  card.style.padding = "15px";
+  card.style.minWidth = "200px";
+  card.style.background = "#fafafa";
+  card.style.textAlign = "center";
+  card.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.1)";
+  card.style.transition = "transform 0.3s ease";
+  card.style.cursor = "pointer";
+  card.onmouseover = () => card.style.transform = "scale(1.05)";
+  card.onmouseout = () => card.style.transform = "scale(1)";
 
-       data.forEach(p => {
-  html += `
-    <div class="product-card">
-      <h3>${p.name}</h3>
-      <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;" />
-      <p>Price: ₹${p.price}</p>
-      <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
-    </div>
+  const html = `
+    <h3>${p.name}</h3>
+    <img src="https://inventory-manager-complete.onrender.com/images/${p.image}" alt="${p.name}" width="150" height="150" style="object-fit: contain;" />
+    <p>Price: ₹${p.price}</p>
+    <button onclick="placeOrder('${p._id}', '${p.name}', ${p.price})">Buy</button>
   `;
+  card.innerHTML = html;
+
+  scrollContainer.appendChild(card);
 });
 
-
-        scrollContainer.appendChild(card);
-      });
 
       content.appendChild(scrollContainer);
     })
