@@ -7,7 +7,7 @@ function placeOrder(productId, productName, price) {
 
   const username = localStorage.getItem("username");
 
-  fetch('http://localhost:5000/api/orders/place-order', {
+  fetch(https://inventory-manager-complete.onrender.com/api/login", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
