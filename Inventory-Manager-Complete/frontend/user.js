@@ -1,4 +1,5 @@
-function placeOrder(productId, productName, price) {
+
+  function placeOrder(productId, productName, price) {
   const quantity = prompt(`How many "${productName}" would you like to buy?`);
   if (!quantity || isNaN(quantity) || quantity <= 0) {
     alert('Please enter a valid quantity');
@@ -16,21 +17,21 @@ function placeOrder(productId, productName, price) {
       username
     })
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.message === 'Order placed') {
-      alert(`✅ Order successful! Your Order ID is: ${data.orderId}`);
+    .then(res => res.json())
+    .then(data => {
+      if (data.message === 'Order placed') {
+        alert(`✅ Order successful! Your Order ID is: ${data.orderId}`);
 
-      const redirectURL = `generate-invoice.html?orderId=${data.orderId}&product=${encodeURIComponent(productName)}&quantity=${quantity}&price=${price}`;
-      window.location.href = redirectURL;
-    } else {
-      alert(`❌ Failed: ${data.message}`);
-    }
-  })
-  .catch(err => {
-    alert('❌ Error placing order');
-    console.error(err);
-  });
+        const redirectURL = `generate-invoice.html?orderId=${data.orderId}&product=${encodeURIComponent(productName)}&quantity=${quantity}&price=${price}`;
+        window.location.href = redirectURL;
+      } else {
+        alert(`❌ Failed: ${data.message}`);
+      }
+    })
+    .catch(err => {
+      alert('❌ Error placing order');
+      console.error(err);
+    });
 }
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
