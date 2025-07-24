@@ -49,6 +49,9 @@ def predict_stock():
         })
 
     return jsonify(result)
+@app.route("/")
+def home():
+    return "Flask server is running"
 
 if __name__ == "__main__":
     import os
