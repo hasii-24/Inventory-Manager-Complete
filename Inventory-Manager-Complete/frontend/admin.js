@@ -129,7 +129,7 @@ document.getElementById('addProductForm').addEventListener('submit', async (e) =
 
 
 function loadStockPredictionChart() {
-  fetch('http://localhost:5001/predict')
+  fetch('https://your-flask-backend.onrender.com/predict')
     .then(response => response.json())
     .then(data => {
       if (!Array.isArray(data)) throw new Error('Invalid data format from Flask');
